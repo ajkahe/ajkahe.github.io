@@ -1,0 +1,16 @@
+body {
+  background-image: url("Background.png");
+}
+h1 {
+  color: black;
+  text-align: center;
+}
+p {
+  color: red;
+}
+canvas{
+	padding: 0;
+    margin: auto;
+    display: block;
+    width: 800px;
+}
