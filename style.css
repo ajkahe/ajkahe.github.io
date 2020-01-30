@@ -2,9 +2,11 @@ body {
   background-image: url("Background.png");
 }
 h1 {
-  color: green;
-  text-align: center;
-  font-family: "comic sans", Arial, Geneva, Helvetica, sans-serif; 
+	color: black;
+	text-align: center;
+	animation-name: hAnimation;
+	animation-duration: 4s;
+	
 }
 p {
   color: red;
@@ -14,4 +16,11 @@ canvas{
     margin: auto;
     display: block;
     width: 800px;
+}
+@keyframes hAnimation{
+	0% {transform: rotate(10deg);}
+	25% {transform: rotate(10deg);}
+	50% {transform: rotate(-20deg);}
+	75% {transform: rotate(-10deg);}
+	100% {transform: rotate(-10deg);}
 }
