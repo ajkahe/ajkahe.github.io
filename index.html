@@ -6,10 +6,13 @@
 <title>Pöhinaattori</title>
 <h1>Pöhinaattori</h1>
 </head>
-<body onload= "draw(7)">
+<body onload= "draw(8)">
 <canvas id="canvas" width="600" height="500"></canvas>
-<button style="position: absolute; top:20px; left30px;" onclick="main()">Uusi Pöhinä</button>
-<form style="position: absolute; top:45px; left30px;">
+<button style="position: absolute; top:20px;" onclick="main()">Uusi Pöhinä</button>
+<a id="download" download="pöhinä.png">
+<button style="position: absolute; bottom:30px; left:45%;" onclick="download()">Tallenna Pöhinä</button>
+</a>
+<form style="position: absolute; top:45px;">
 <input type="radio" name="shape" value="Kolmio"> Kolmio<br>
 <input type="radio" name="shape" value="Neliö"> Neliö<br>
 <input type="radio" name="shape" value="Viisikulmio"> Viisikulmio<br>
@@ -74,8 +77,6 @@ function draw(number) {
 	context.moveTo(0,0);
 	context.fillStyle = "white";
 	context.fill();
-	context.strokeStyle = "black";
-	context.stroke();
 	context.font = "20px Arial";
 	context.textAlign = "center";
 	if (number < 2){ //triangle
@@ -258,7 +259,13 @@ function draw(number) {
 		context.fillText(poh[Math.round(Math.random() * len)],315, 0);
 		context.restore();
 	}
-  }
+}
+}
+function download() {
+		var download = document.getElementById("download");
+		var image = document.getElementById("canvas").toDataURL("image/png")
+		.replace("image/png", "image/octet-stream");
+		download.setAttribute("href", image);
 }
 </script>
 </body>

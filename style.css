@@ -5,12 +5,10 @@ body {
 h1 {
 	color: black;
 	text-align: center;
+	left: 50%;
   	animation-name: hAnimation;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
-}
-p {
-	color: red;
 }
 canvas{
 	padding: 0;
