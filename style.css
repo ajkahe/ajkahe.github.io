@@ -9,12 +9,29 @@ h1 {
   	animation-name: hAnimation;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
+	font-family: Arial;
 }
-canvas{
+#block{
 	padding: 0;
-    margin: auto;
     display: block;
+	margin: auto;
     width: 600px;
+	border: 2px solid;
+	background: white;
+}
+#controls{
+	position: absolute;
+	top: 80px;
+	left: 80px;
+	display: block;
+	border: 2px solid;
+	padding: 20px;
+	width: 180px;
+	height: 463px;
+	background: white;
+	font-size: 20px;
+	font-family: Arial;
+	
 }
 @keyframes hAnimation{
 	0% {transform: rotate(5deg);}

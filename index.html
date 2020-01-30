@@ -7,12 +7,15 @@
 <h1>Pöhinaattori</h1>
 </head>
 <body onload= "draw(8)">
+<div id="block">
 <canvas id="canvas" width="600" height="500"></canvas>
-<button style="position: absolute; top:20px;" onclick="main()">Uusi Pöhinä</button>
 <a id="download" download="pöhinä.png">
 <button style="position: absolute; bottom:30px; left:45%;" onclick="download()">Tallenna Pöhinä</button>
 </a>
-<form style="position: absolute; top:45px;">
+</div>
+<div id="controls">
+<button id="pohina" onclick="main()">Uusi Pöhinä</button>
+<form>
 <input type="radio" name="shape" value="Kolmio"> Kolmio<br>
 <input type="radio" name="shape" value="Neliö"> Neliö<br>
 <input type="radio" name="shape" value="Viisikulmio"> Viisikulmio<br>
@@ -22,6 +25,7 @@
 <input type="radio" name="shape" value="Jack Barker"> Jack Barker<br>
 <input type="radio" name="shape" value="Satunnainen" checked> Satunnainen<br>
 </form>
+</div>
 <script>
 var colors = ["red", "green", "blue", "yellow", "purple", "cyan", "teal", "azure", "bisque", "thistle"];
 var poh = ["BI", "Logistics", "Outsourcing", "Offshoring", "IOT", "Omnichannel", "Holistic", "Hyperlocal", "Born Global", "B2B", "B2C", "C2C", "Big Data", "Advertainment", "Disruptor", "Freemium", "Value Added", "UGC", "Insourcing", "Web 2.0", "Industry 4.0", "Analytics", "Touchpoint", "Leverage", "Innovation", "ROI", "Fullfilment", "Agile", "Lean", "Sales", "Growth"];
@@ -69,14 +73,6 @@ function draw(number) {
 	var color = Math.round(Math.random() * 9);
 	var len = poh.length - 1;
 	context.clearRect(0, 0, canvas.width, canvas.height);
-	context.beginPath();
-	context.moveTo(0,0);
-	context.lineTo(600,0);
-	context.lineTo(600,500);
-	context.lineTo(0,500);
-	context.moveTo(0,0);
-	context.fillStyle = "white";
-	context.fill();
 	context.font = "20px Arial";
 	context.textAlign = "center";
 	if (number < 2){ //triangle
