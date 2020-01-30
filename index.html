@@ -7,7 +7,7 @@
 <h1>Pöhinaattori</h1>
 </head>
 <body onload= "draw(7)">
-<canvas id="canvas" width="800" height="600"></canvas>
+<canvas id="canvas" width="600" height="500"></canvas>
 <button style="position: absolute; top:20px; left30px;" onclick="main()">Uusi Pöhinä</button>
 <form style="position: absolute; top:45px; left30px;">
 <input type="radio" name="shape" value="Kolmio"> Kolmio<br>
@@ -16,11 +16,12 @@
 <input type="radio" name="shape" value="Kuusikulmio"> Kuusikulmio<br>
 <input type="radio" name="shape" value="Pyramidi"> Pyramidi<br>
 <input type="radio" name="shape" value="Venn-diagrammi"> Venn-diagrammi<br>
+<input type="radio" name="shape" value="Jack Barker"> Jack Barker<br>
 <input type="radio" name="shape" value="Satunnainen" checked> Satunnainen<br>
 </form>
 <script>
 var colors = ["red", "green", "blue", "yellow", "purple", "cyan", "teal", "azure", "bisque", "thistle"];
-var poh = ["BI", "Logistics", "Supply Chains", "Outsourcing", "Offshoring", "IOT", "Omnichannel", "Holistic", "Hyperlocal", "Born Global", "B2B", "B2C", "C2C", "Big Data", "Advertainment", "Disruptor", "Freemium", "Value Added", "UGC", "Insourcing", "Web 2.0", "Industry 4.0", "Analytics", "Touchpoint", "Leverage", "Innovation", "ROI", "Fullfilment"];
+var poh = ["BI", "Logistics", "Outsourcing", "Offshoring", "IOT", "Omnichannel", "Holistic", "Hyperlocal", "Born Global", "B2B", "B2C", "C2C", "Big Data", "Advertainment", "Disruptor", "Freemium", "Value Added", "UGC", "Insourcing", "Web 2.0", "Industry 4.0", "Analytics", "Touchpoint", "Leverage", "Innovation", "ROI", "Fullfilment", "Agile", "Lean", "Sales", "Growth"];
 var canvas = document.getElementById('canvas');
 var shapes = document.getElementsByName('shape');
 function main() {
@@ -29,7 +30,7 @@ function main() {
 			var number = i + 1;
 		}
 	}
-	if (number == 7){
+	if (number == 8){
 		time(0, number);
 	}else{
 		draw(number);
@@ -58,169 +59,204 @@ function time(times, number){
 }
 function draw(number) {
   if (canvas.getContext) {
-	if(number == 7){
-		number = random = Math.random() * (7 - 1) + 1;
+	if(number == 8){
+		number = random = Math.random() * (8 - 1) + 1;
 	}
     var context = canvas.getContext('2d');
 	var color = Math.round(Math.random() * 9);
 	var len = poh.length - 1;
 	context.clearRect(0, 0, canvas.width, canvas.height);
 	context.beginPath();
-	context.moveTo(100,50);
-	context.lineTo(700,50);
-	context.lineTo(700,550);
-	context.lineTo(100,550);
-	context.moveTo(100,50);
+	context.moveTo(0,0);
+	context.lineTo(600,0);
+	context.lineTo(600,500);
+	context.lineTo(0,500);
+	context.moveTo(0,0);
 	context.fillStyle = "white";
 	context.fill();
 	context.strokeStyle = "black";
 	context.stroke();
 	context.font = "20px Arial";
 	context.textAlign = "center";
-	if (number < 2){
+	if (number < 2){ //triangle
 		context.fillStyle = "black"
 		context.beginPath();
-		context.moveTo(225,500);
-		context.lineTo(575,500);
-		context.lineTo(400,197);
+		context.moveTo(125,450);
+		context.lineTo(475,450);
+		context.lineTo(300,147);
 		context.fill();
 		context.beginPath();
-		context.moveTo(227,498);
-		context.lineTo(573,498);
-		context.lineTo(400,199);
+		context.moveTo(127,448);
+		context.lineTo(473,448);
+		context.lineTo(300,149);
 		context.fillStyle = colors[color];
 		context.fill();
 		context.fillStyle = "black";
-		context.fillText(poh[Math.round(Math.random() * len)],225,530);
-		context.fillText(poh[Math.round(Math.random() * len)],575,530);
-		context.fillText(poh[Math.round(Math.random() * len)],400,187);
-	}else if (number < 3){
+		context.fillText(poh[Math.round(Math.random() * len)],125,480);
+		context.fillText(poh[Math.round(Math.random() * len)],475,480);
+		context.fillText(poh[Math.round(Math.random() * len)],300,137);
+	}else if (number < 3){ //rectangle
 		context.fillStyle = "black"
 		context.beginPath();
-		context.moveTo(250,200);
-		context.lineTo(250,500);
-		context.lineTo(530,500);
-		context.lineTo(530,200);
+		context.moveTo(150,150);
+		context.lineTo(150,450);
+		context.lineTo(430,450);
+		context.lineTo(430,150);
 		context.fill();
 		context.beginPath();
-		context.moveTo(252,202);
-		context.lineTo(252,498);
-		context.lineTo(528,498);
-		context.lineTo(528,202);
+		context.moveTo(152,152);
+		context.lineTo(152,448);
+		context.lineTo(428,448);
+		context.lineTo(428,152);
 		context.fillStyle = colors[color];
 		context.fill();
 		context.fillStyle = "black";
-		context.fillText(poh[Math.round(Math.random() * len)],250,190);
-		context.fillText(poh[Math.round(Math.random() * len)],250,530);
-		context.fillText(poh[Math.round(Math.random() * len)],530,530);
-		context.fillText(poh[Math.round(Math.random() * len)],530,190);
-	}else if (number < 4){
+		context.fillText(poh[Math.round(Math.random() * len)],150,140);
+		context.fillText(poh[Math.round(Math.random() * len)],150,480);
+		context.fillText(poh[Math.round(Math.random() * len)],430,480);
+		context.fillText(poh[Math.round(Math.random() * len)],430,140);
+	}else if (number < 4){ //pentagon
 		context.fillStyle = "black"
 		context.beginPath();
-		context.moveTo(275,500);
-		context.lineTo(198,262);
-		context.lineTo(400,115);
-		context.lineTo(602,262);
-		context.lineTo(525,500);
+		context.moveTo(175,450);
+		context.lineTo(98,212);
+		context.lineTo(300,65);
+		context.lineTo(502,212);
+		context.lineTo(425,450);
 		context.fill();
 		context.beginPath();
-		context.moveTo(277,498);
-		context.lineTo(200,262);
-		context.lineTo(400,117);
-		context.lineTo(600,262);
-		context.lineTo(523,498);
+		context.moveTo(177,448);
+		context.lineTo(100,212);
+		context.lineTo(300,67);
+		context.lineTo(500,212);
+		context.lineTo(423,448);
 		context.fillStyle = colors[color];
 		context.fill();
 		context.fillStyle = "black";
-		context.fillText(poh[Math.round(Math.random() * len)],275,530);
-		context.fillText(poh[Math.round(Math.random() * len)],158,262);
-		context.fillText(poh[Math.round(Math.random() * len)],400,105);
-		context.fillText(poh[Math.round(Math.random() * len)],630,262);
-		context.fillText(poh[Math.round(Math.random() * len)],525,530);
-	}else if (number < 5){
+		context.fillText(poh[Math.round(Math.random() * len)],175,480);
+		context.fillText(poh[Math.round(Math.random() * len)],58,212);
+		context.fillText(poh[Math.round(Math.random() * len)],300,55);
+		context.fillText(poh[Math.round(Math.random() * len)],530,212);
+		context.fillText(poh[Math.round(Math.random() * len)],425,480);
+	}else if (number < 5){ //hexagon
 		context.fillStyle = "black"
 		context.beginPath();
-		context.moveTo(300,500);
-		context.lineTo(200,327);
-		context.lineTo(300,154);
-		context.lineTo(500,154);
-		context.lineTo(600,327);
-		context.lineTo(500,500);
+		context.moveTo(200,450);
+		context.lineTo(100,277);
+		context.lineTo(200,104);
+		context.lineTo(400,104);
+		context.lineTo(500,277);
+		context.lineTo(400,450);
 		context.fill();
 		context.beginPath();
-		context.moveTo(302,498);
-		context.lineTo(202,327);
-		context.lineTo(300,156);
-		context.lineTo(500,156);
-		context.lineTo(598,327);
-		context.lineTo(498,498);
+		context.moveTo(202,448);
+		context.lineTo(102,277);
+		context.lineTo(200,106);
+		context.lineTo(400,106);
+		context.lineTo(498,277);
+		context.lineTo(398,448);
 		context.fillStyle = colors[color];
 		context.fill();
 		context.fillStyle = "black";
-		context.fillText(poh[Math.round(Math.random() * len)],300,530);
-		context.fillText(poh[Math.round(Math.random() * len)],160,327);
-		context.fillText(poh[Math.round(Math.random() * len)],300,144);
-		context.fillText(poh[Math.round(Math.random() * len)],500,144);
-		context.fillText(poh[Math.round(Math.random() * len)],640,327);
-		context.fillText(poh[Math.round(Math.random() * len)],500,530);
-	}else if (number < 6){
+		context.fillText(poh[Math.round(Math.random() * len)],200,480);
+		context.fillText(poh[Math.round(Math.random() * len)],60,277);
+		context.fillText(poh[Math.round(Math.random() * len)],200,94);
+		context.fillText(poh[Math.round(Math.random() * len)],400,94);
+		context.fillText(poh[Math.round(Math.random() * len)],540,277);
+		context.fillText(poh[Math.round(Math.random() * len)],400,480);
+	}else if (number < 6){ //pyramid
 		context.fillStyle = "black"
 		context.beginPath();
-		context.moveTo(225,500);
-		context.lineTo(575,500);
-		context.lineTo(400,197);
+		context.moveTo(125,450);
+		context.lineTo(475,450);
+		context.lineTo(300,147);
 		context.fill();
 		context.beginPath();
-		context.moveTo(227,498);
-		context.lineTo(285,399);
-		context.lineTo(515,399);
-		context.lineTo(573,498);
+		context.moveTo(127,448);
+		context.lineTo(185,349);
+		context.lineTo(415,349);
+		context.lineTo(473,448);
 		context.fillStyle = colors[color];
 		color = Math.round(Math.random() * 9);
 		context.fill();
 		context.beginPath();
-		context.moveTo(285,397);
-		context.lineTo(515,397);
-		context.lineTo(456,297);
-		context.lineTo(344,297);
+		context.moveTo(185,347);
+		context.lineTo(415,347);
+		context.lineTo(356,247);
+		context.lineTo(244,247);
 		context.fillStyle = colors[color];
 		color = Math.round(Math.random() * 9);
 		context.fill();
 		context.beginPath();
-		context.moveTo(344, 295);
-		context.lineTo(400, 199);
-		context.lineTo(456, 295);
+		context.moveTo(244, 245);
+		context.lineTo(300, 149);
+		context.lineTo(356, 245);
 		context.fillStyle = colors[color];
 		context.fill();
 		context.fillStyle = "black";
-		context.fillText(poh[Math.round(Math.random() * len)],400,450);
-		context.fillText(poh[Math.round(Math.random() * len)],400,351);
-		context.fillText(poh[Math.round(Math.random() * len)],400,270);
-	}else{
+		context.fillText(poh[Math.round(Math.random() * len)],300,400);
+		context.fillText(poh[Math.round(Math.random() * len)],300,301);
+		context.fillText(poh[Math.round(Math.random() * len)],300,220);
+	}else if (number < 7){ //venn-diagram
 		context.fillStyle = colors[color];
 		context.beginPath();
-		context.arc(400, 215, 125, 0, 2*Math.PI);
+		context.arc(300, 165, 125, 0, 2*Math.PI);
 		context.fill();
 		context.beginPath();
-		context.arc(479, 375, 125, 0, 2*Math.PI);
+		context.arc(379, 325, 125, 0, 2*Math.PI);
 		context.fill();
 		context.beginPath();
-		context.arc(321, 375, 125, 0, 2*Math.PI);
+		context.arc(221, 325, 125, 0, 2*Math.PI);
 		context.fill();
 		context.beginPath();
-		context.arc(400, 215, 125, 0, 2*Math.PI);
+		context.arc(300, 165, 125, 0, 2*Math.PI);
 		context.stroke();
 		context.beginPath();
-		context.arc(479, 375, 125, 0, 2*Math.PI);
+		context.arc(379, 325, 125, 0, 2*Math.PI);
 		context.stroke();
 		context.beginPath();
-		context.arc(321, 375, 125, 0, 2*Math.PI);
+		context.arc(221, 325, 125, 0, 2*Math.PI);
 		context.stroke();
 		context.fillStyle = "black";
-		context.fillText(poh[Math.round(Math.random() * len)],400,223);
-		context.fillText(poh[Math.round(Math.random() * len)],479,383);
-		context.fillText(poh[Math.round(Math.random() * len)],321,383);
-		context.fillText(poh[Math.round(Math.random() * len)],400,323);
+		context.fillText(poh[Math.round(Math.random() * len)],300,173);
+		context.fillText(poh[Math.round(Math.random() * len)],379,333);
+		context.fillText(poh[Math.round(Math.random() * len)],221,333);
+		context.fillText(poh[Math.round(Math.random() * len)],300,273);
+	}else{ //Jack Barker
+		context.fillStyle = "black"
+		context.beginPath();
+		context.moveTo(150,150);
+		context.lineTo(150,450);
+		context.lineTo(430,450);
+		context.lineTo(430,150);
+		context.fill();
+		context.beginPath();
+		context.moveTo(152,152);
+		context.lineTo(428,152);
+		context.lineTo(152,448);
+		context.fillStyle = colors[color];
+		context.fill();
+		color = Math.round(Math.random() * 9);
+		context.beginPath();
+		context.moveTo(428,152);
+		context.lineTo(428,448);
+		context.lineTo(152,448);
+		context.fillStyle = colors[color];
+		context.fill();
+		context.fillStyle = "black";
+		context.fillText(poh[Math.round(Math.random() * len)],290,140);
+		context.fillText(poh[Math.round(Math.random() * len)],290,480);
+		context.save();
+		context.rotate(Math.PI/2);
+		context.translate(0,-600);
+		context.fillText(poh[Math.round(Math.random() * len)],300,160);
+		context.rotate(Math.PI);
+		context.translate(-500,-600);
+		context.fillText(poh[Math.round(Math.random() * len)],200,140);
+		context.rotate(Math.PI/4);
+		context.translate(30,70);
+		context.fillText(poh[Math.round(Math.random() * len)],315, 0);
+		context.restore();
 	}
   }
 }
